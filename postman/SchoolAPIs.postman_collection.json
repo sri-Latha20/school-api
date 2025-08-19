@@ -1,0 +1,72 @@
+{
+  "info": {
+    "name": "School APIs",
+    "_postman_id": "7f4b1e96-8d8c-4b07-9b6a-6f5e7f2f0f1a",
+    "description": "Collection for School Management APIs (addSchool, listSchools).",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Add School (POST /addSchool)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"Greenwood High\",\n  \"address\": \"Main Road\",\n  \"latitude\": 17.385,\n  \"longitude\": 78.4867\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/addSchool",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "addSchool"
+          ]
+        },
+        "description": "Adds a new school to the database."
+      },
+      "response": []
+    },
+    {
+      "name": "List Schools by Proximity (GET /listSchools)",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/listSchools?lat=17.40&lon=78.48",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "listSchools"
+          ],
+          "query": [
+            {
+              "key": "lat",
+              "value": "17.40"
+            },
+            {
+              "key": "lon",
+              "value": "78.48"
+            }
+          ]
+        },
+        "description": "Fetches all schools sorted by distance from the given coordinates."
+      },
+      "response": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:3000"
+    }
+  ]
+}

@@ -1,0 +1,57 @@
+{
+  "info": {
+    "name": "School API Collection",
+    "_postman_id": "abcd1234-5678-90ef-ghij-klmnopqrstuv",
+    "description": "Postman collection for testing School API endpoints",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Add School",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"name\": \"ABC School\",\n    \"address\": \"Hyderabad\",\n    \"latitude\": 17.38,\n    \"longitude\": 78.48\n}"
+        },
+        "url": {
+          "raw": "http://localhost:3000/addSchool",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["addSchool"]
+        }
+      }
+    },
+    {
+      "name": "List Schools",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3000/listSchools?lat=17.38&lon=78.48",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["listSchools"],
+          "query": [
+            {
+              "key": "lat",
+              "value": "17.38"
+            },
+            {
+              "key": "lon",
+              "value": "78.48"
+            }
+          ]
+        }
+      }
+    }
+  ]
+}
