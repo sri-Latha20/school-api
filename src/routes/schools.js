@@ -26,15 +26,27 @@ router.post(
   async (req, res) => {
     const { name, address, latitude, longitude } = req.body;
     try {
+      // Debug log incoming request
+      console.log("Incoming body:", req.body);
+
       const [result] = await db.execute(
         'INSERT INTO schools (name, address, latitude, longitude) VALUES (?, ?, ?, ?)',
         [name, address, latitude, longitude]
       );
+
       const [rows] = await db.execute('SELECT * FROM schools WHERE id = ?', [result.insertId]);
+
       res.status(201).json({ message: 'School added', school: rows[0] });
     } catch (err) {
       console.error('Error inserting school:', err);
-      res.status(500).json({ error: 'Failed to add school' });
+
+      // Return full error details for debugging
+      res.status(500).json({
+        error: 'Failed to add school',
+        details: err.message,
+        sql: err.sql || null,
+        values: [name, address, latitude, longitude]
+      });
     }
   }
 );
@@ -69,7 +81,11 @@ router.get(
       res.json({ count: rows.length, schools: rows });
     } catch (err) {
       console.error('Error listing schools:', err);
-      res.status(500).json({ error: 'Failed to list schools' });
+      res.status(500).json({
+        error: 'Failed to list schools',
+        details: err.message,
+        sql: err.sql || null
+      });
     }
   }
 );
