@@ -5,7 +5,7 @@ This project provides a simple **REST API** for managing schools, including addi
 ## 🚀 Deployment (Live URL)
 
 Base URL:  
-https://school-api.onrender.com
+https://school-api-it1v.onrender.com/
 
 yaml
 Copy
