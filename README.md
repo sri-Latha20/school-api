@@ -5,7 +5,7 @@ This project provides a simple **REST API** for managing schools, including addi
 ## 🚀 Deployment (Live URL)
 
 Base URL:  
-https://school-api-it1v.onrender.com/
+ https://school-api-it1v.onrender.com
 
 yaml
 Copy
@@ -57,7 +57,7 @@ Edit
 bash
 Copy
 Edit
-git clone https://github.com/your-username/school-api.git
+git clone https://github.com/sri-Latha20/school-api
 cd school-api
 2. Install dependencies
 bash
